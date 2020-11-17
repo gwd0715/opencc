@@ -7,7 +7,7 @@ import (
 	"io/ioutil"
 	"encoding/json"
 	"strings"
-	"path/filepath"
+	"runtime"
 	"os"
 	"bufio"
 )
