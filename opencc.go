@@ -28,7 +28,11 @@ type OpenCC struct {
 // Supported conversions: s2t, t2s, s2tw, tw2s, s2hk, hk2s, s2twp, tw2sp, t2tw, t2hk
 func NewOpenCC(conversions string) (*OpenCC, error) {
 	if len(dataDir) < 1 {
-		dataDir = filepath.Dir(os.Args[0]) + "/data"
+		_, file, _, ok := runtime.Caller(0)
+		if !ok {
+			panic("No caller information")
+		}
+		dataDir = path.Dir(file) + "/data"
 	}
 	fileName := dataDir + "/config/" + conversions + ".json"
 	body, err := ioutil.ReadFile(fileName)
