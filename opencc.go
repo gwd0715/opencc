@@ -8,7 +8,7 @@ import (
 	"encoding/json"
 	"strings"
 	"runtime"
-	"os"
+	"path"
 	"bufio"
 )
 
